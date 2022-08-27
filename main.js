@@ -68,6 +68,7 @@ function preloadImages()
     for (const image in scrollImages) {
         new Image().src = scrollImages[image];
     }
+    return true;
 }
 
 function trackScrollPosition() {
@@ -82,9 +83,10 @@ function trackScrollPosition() {
 
 document.onreadystatechange = () => {
     if (document.readyState === 'complete') {
-        preloadImages();
-        window.onscroll = (e) => { 
-            trackScrollPosition(); 
+        if (preloadImages()) {
+            window.onscroll = (e) => { 
+                trackScrollPosition(); 
+            }
         }
     }
 };
