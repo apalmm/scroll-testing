@@ -68,6 +68,7 @@ function preloadImages()
     for (const image in scrollImages) {
         new Image().src = scrollImages[image];
     }
+    
     return true;
 }
 
